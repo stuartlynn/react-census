@@ -1,0 +1,26 @@
+{
+    "name": "@react-census/types",
+    "version": "0.0.0",
+    "description": "Types for use in the react census project",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "files": [
+        "dist"
+    ],
+    "types": "dist/index.d.ts",
+    "source": "src/index.ts",
+    "author": "Stuart Lynn",
+    "typings": "dist/index.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "build": "rollup -c",
+        "start": "rollup -cw"
+    },
+    "dependencies": {},
+    "peerDependencies": {},
+    "devDependencies": {
+        "microbundle": "^0.12.0-next.8",
+        "rollup": "^2.3.4",
+        "rollup-plugin-typescript2": "^0.27.0"
+    }
+}

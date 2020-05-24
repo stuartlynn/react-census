@@ -1,5 +1,18 @@
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .App-logo {
@@ -32,7 +45,140 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+td {
+  text-align: left;
+
+}
+
+.concepts {
+  height: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.concepts input {
+  box-sizing: border-box;
+  padding: 10px 10px;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  overflow-y: auto;
+
+  flex: 1;
+  height: 100%;
+}
+
+li {
+  text-align: left;
+  word-wrap: break-word;
+  border-bottom: 1px solid grey;
+  box-sizing: border-box;
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+.table-browser {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+}
+
+.table-browser table {
+  width: 100%;
+  height: 100%;
+}
+
+table thead tr {
+  border: 1px solid grey;
+}
+
+table thead td {
+  font-weight: bold;
+}
+
+.concept-variables {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.table-browser tbody {
+  overflow-y: auto;
+
+}
+
+table.paleBlueRows {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #FFFFFF;
+  width: 350px;
+  height: 200px;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table.paleBlueRows td,
+table.paleBlueRows th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 2px;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr.selected {
+  font-weight: bold;
+}
+
+table.paleBlueRows tbody td {
+  font-size: 13px;
+}
+
+table.paleBlueRows td:nth-child(even) {
+  background: #EBEBEB;
+}
+
+table.paleBlueRows thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+
+table.paleBlueRows thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+}
+
+table.paleBlueRows thead th:first-child {
+  border-left: none;
+}
+
+table.paleBlueRows tfoot td {
+  font-size: 14px;
+}
+
+.data-table {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px
+}
+
+.data-table table {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }

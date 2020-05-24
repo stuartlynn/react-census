@@ -1,0 +1,37 @@
+{
+    "name": "@react-census/use-acs",
+    "version": "0.0.0",
+    "description": "Hook to grab data from the acs",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "files": [
+        "dist"
+    ],
+    "types": "dist/useACS.d.ts",
+    "source": "src/useACS.ts",
+    "author": "Stuart Lynn",
+    "typings": "dist/useACS.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "build": "rollup -c",
+        "start": "rollup -cw"
+    },
+    "dependencies": {
+        "@types/react": "^16.9.33",
+        "@types/styled-components": "^5.0.1",
+        "react": "^16.8.6",
+        "@react-census/types":"0.0.0",
+        "citysdk" : "2.1.3"
+    },
+    "peerDependencies": {
+        "@types/styled-components": "^5.0.1",
+        "react": "^16.8.6",
+        "@react-census/types":"0.0.0"
+    },
+    "devDependencies": {
+        "microbundle": "^0.12.0-next.8",
+        "node-sass": "^4.13",
+        "rollup": "^2.3.4",
+        "rollup-plugin-typescript2": "^0.27.0"
+    }
+}

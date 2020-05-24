@@ -1,0 +1,41 @@
+{
+    "name": "@react-census/population-pyramid",
+    "version": "0.0.0",
+    "description": "The standard button for data clinic projects",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "files": [
+        "dist"
+    ],
+    "types": "dist/index.d.ts",
+    "source": "/home/stuart/Projects/react-census/packages/PopulationPyramid/src/PopulationPyramid.tsx/PopulationPyramid.tsx",
+    "author": "Stuart Lynn",
+    "typings": "dist/PopulationPyramid.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "build": "rollup -c",
+        "start": "rollup -cw"
+    },
+    "dependencies": {
+        "@types/react": "^16.9.33",
+        "@types/styled-components": "^5.0.1",
+        "react": "^16.8.6",
+        "styled-components": "^5.1.0",
+        "@react-census/use-acs": "0.0.0",
+        "@react-census/types": "0.0.0",
+        "react-vega": "^7.3.0"
+    },
+    "peerDependencies": {
+        "@types/styled-components": "^5.0.1",
+        "react": "^16.8.6",
+        "styled-components": "^5.1.0",
+        "@react-census/use-acs": "0.0.0",
+        "@react-census/types": "0.0.0"
+    },
+    "devDependencies": {
+        "microbundle": "^0.12.0-next.8",
+        "node-sass": "^4.13",
+        "rollup": "^2.3.4",
+        "rollup-plugin-typescript2": "^0.27.0"
+    }
+}
