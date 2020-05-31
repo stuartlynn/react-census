@@ -11,6 +11,7 @@ type DataTableProps = {
   variables: string[];
   geoHierarchy: GeoHierarchy;
   perPage?: number;
+  showBars?: boolean;
 };
 
 export function DataTable({
@@ -19,6 +20,7 @@ export function DataTable({
   variables,
   geoHierarchy,
   perPage = 10,
+  showBars = false,
 }: DataTableProps) {
   const [data, error, state] = useACS({
     vintage,
@@ -27,6 +29,8 @@ export function DataTable({
     geoHierarchy,
   });
 
+  console.log("Data is ", data);
+
   const columns = useMemo(() => {
     if (data && data.length > 0) {
       return Object.keys(data[0]).map((c) => ({ Header: c, accessor: c }));
@@ -34,6 +38,30 @@ export function DataTable({
       return [];
     }
   }, [data]);
+
+  const maxmin = (data: any[]) =>
+    data
+      .filter((val: any) => typeof val !== "string")
+      .reduce(
+        (acc: { max: number; min: number }, val: number) => ({
+          max: val > acc.max ? val : acc.max,
+          min: val < acc.min ? val : acc.min,
+        }),
+        { max: Number.MIN_VALUE, min: Number.MAX_VALUE }
+      );
+  const columnLimits = useMemo(() => {
+    if (showBars && data) {
+      return Object.keys(data[0]).reduce(
+        (all, col) => ({
+          ...all,
+          [col]: maxmin(data.map((datum: any) => datum[col])),
+        }),
+        {}
+      );
+    } else {
+      return {};
+    }
+  }, [data, showBars]);
 
   const tableInstance = useTable(
     { columns, data, initialState: { pageSize: perPage } },
