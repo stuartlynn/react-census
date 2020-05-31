@@ -1,53 +1,111 @@
-import React, { useMemo } from 'react'
-import { useACS, LoadingState } from '@react-census/use-acs'
-import { ACSProduct, Vintage, GeoHierarchy } from '@react-census/types';
-import ReactTable from 'react-table'
+import React, { useMemo } from "react";
+import { useACS, LoadingState } from "@react-census/use-acs";
+import { ACSProduct, Vintage, GeoHierarchy } from "@react-census/types";
+import { useTable, usePagination } from "react-table";
+import { TableStyles, PaginationStyles } from "./Styles";
+import ReactPaginate from "react-paginate";
 
 type DataTableProps = {
-    vintage: Vintage,
-    product: ACSProduct,
-    variables: string[],
-    geoHierarchy: GeoHierarchy
-}
+  vintage: Vintage;
+  product: ACSProduct;
+  variables: string[];
+  geoHierarchy: GeoHierarchy;
+  perPage?: number;
+};
 
-export function DataTable({ vintage, product, variables, geoHierarchy }: DataTableProps) {
-    const [data, error, state] = useACS({
-        vintage,
-        product,
-        variables,
-        geoHierarchy,
-    });
+export function DataTable({
+  vintage,
+  product,
+  variables,
+  geoHierarchy,
+  perPage = 10,
+}: DataTableProps) {
+  const [data, error, state] = useACS({
+    vintage,
+    product,
+    variables,
+    geoHierarchy,
+  });
 
-    const columns = useMemo(() => {
-        if (data && data.length > 0) {
-            return Object.keys(data[0]).map((c) => ({ Header: c, accessor: c }))
-        }
-    }, [data])
+  const columns = useMemo(() => {
+    if (data && data.length > 0) {
+      return Object.keys(data[0]).map((c) => ({ Header: c, accessor: c }));
+    } else {
+      return [];
+    }
+  }, [data]);
 
-    return (
-        <div className='data-table'>
-            {state === LoadingState.loading &&
-                <h2>Loading...</h2>
-            }
-            {state === LoadingState.done &&
-                <table>
-                    <thead>
-                        <tr>
-                            {columns?.map(c => <td>{c.Header}</td>)}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data?.map(row =>
-                            <tr>
-                                {Object.values(row).map((val => <td>{`${val}`}</td>))}
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            }
-            {state === LoadingState.failed &&
-                <h2>Failed to load : {error} </h2>
-            }
-        </div>
-    )
+  const tableInstance = useTable(
+    { columns, data, initialState: { pageSize: perPage } },
+    usePagination
+  );
+
+  const {
+    getTableProps,
+    headerGroups,
+    rows,
+    getRowProps,
+    prepareRow,
+    pageOptions,
+    page,
+    state: { pageIndex, pageSize },
+    gotoPage,
+    previousPage,
+    nextPage,
+    setPageSize,
+    canPreviousPage,
+    canNextPage,
+    getTableBodyProps,
+  } = tableInstance;
+
+  return (
+    <div className="data-table">
+      {state === LoadingState.loading && <h2>Loading...</h2>}
+      {state === LoadingState.done && (
+        <>
+          <TableStyles>
+            <table {...getTableProps()}>
+              <thead>
+                {headerGroups.map((headerGroup) => (
+                  <tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map((column) => (
+                      <th {...column.getHeaderProps()}>
+                        {column.render("Header")}
+                      </th>
+                    ))}
+                  </tr>
+                ))}
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {page.map((row, i) => {
+                  prepareRow(row);
+                  return (
+                    <tr {...row.getRowProps()}>
+                      {row.cells.map((cell) => {
+                        return (
+                          <td {...cell.getCellProps()}>
+                            {cell.render("Cell")}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </TableStyles>
+          <PaginationStyles>
+            <ReactPaginate
+              pageCount={pageOptions.length}
+              pageRangeDisplayed={20}
+              marginPagesDisplayed={20}
+              forcePage={pageIndex}
+              onPageChange={(page) => gotoPage(page.selected)}
+            />
+          </PaginationStyles>
+        </>
+      )}
+      {state === LoadingState.failed && <h2>Failed to load : {error} </h2>}
+    </div>
+  );
 }

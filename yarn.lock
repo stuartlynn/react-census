@@ -2583,10 +2583,17 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-table@7.0.18":
-  version "7.0.18"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.18.tgz#df61f8272fd3add86b442a90baa6dbaef9b1f32a"
-  integrity sha512-O4iKmVYVQz+6Nl9LsLtWQz9Unsmq0UySJrh5hpV5d+wrf15skhB0dqI9ocCNovJpcYxGjHrn3VbeSyAcaxHZtA==
+"@types/react-paginate@6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@types/react-paginate/-/react-paginate-6.2.1.tgz#2329088d78010ea49661559c8467a24ecd942784"
+  integrity sha512-+q8k1N0WzbMyOCsIEH/p5D6/KQD8dXYLzfvSvriYn//94icd2sqhAL2rWXkgwGvqHGCSTU9AoHtsWCJxPfquUQ==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-table@7.0.6":
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.6.tgz#29c729a95835114424d88e9a80c67df14327c042"
+  integrity sha512-eyicPAsO7/1MGzrOZhJAP35XApmLT2/0ylc3i0lVlBSRkxkW3ac7WbmQgbprbYGce+AUQ133OKqUKhQ/WvRGMA==
   dependencies:
     "@types/react" "*"
 
@@ -12011,6 +12018,11 @@ preserve@^0.2.0:
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
   integrity sha1-gV7R9uvGWSb4ZbMQwHE7yzMVzks=
 
+prettier@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
+  integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
+
 pretty-bytes@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-3.0.1.tgz#27d0008d778063a0b4811bb35c79f1bd5d5fbccf"
@@ -12111,7 +12123,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -12378,6 +12390,13 @@ react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-paginate@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-6.3.2.tgz#4e18cbdb2654d308566775fa14df11e820188391"
+  integrity sha512-Ch++Njfv8UHpLtIMiQouAPeJQA5Ki86kIYfCer6c1B96Rvn3UF27se+goCilCP8oHNXNsA2R2kxvzanY1YIkyg==
+  dependencies:
+    prop-types "^15.6.1"
+
 react-scripts@3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-3.4.0.tgz#f413680f0b5b937c8879ba1ffdae9b8c5b364bf5"
@@ -12438,10 +12457,10 @@ react-scripts@3.4.0:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-table@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.1.0.tgz#c975cd67e917c54190b6c9df29f085285b0c3f4e"
-  integrity sha512-AZpgW0Xpo6Z7jxXZIBovzCGoYVkuBwATsJh7X4+JXwq9JtDaorOmxWC9gKx5Hui4d+n+I99enyyJS+LRtKydxA==
+react-table@7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.6.tgz#ab7c9bb527339c49af39a4380884e55bbf67d8bc"
+  integrity sha512-XP+mXWCDd6VNZ/fCq69yc/vCWRGTfhQHc0fsLrnMVwT9m3MmmErMLywMbYQkkDjg1OBbhoDXpuo/R7VKGpFbQg==
   dependencies:
     "@scarf/scarf" "^1.0.4"
 

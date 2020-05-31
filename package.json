@@ -18,7 +18,8 @@
         "lerna": "^3.21.0",
         "meow": "*",
         "microbundle": "^0.11.0",
-        "param-case": "*"
+        "param-case": "*",
+        "prettier": "^2.0.5"
     },
     "config": {
         "commitizen": {

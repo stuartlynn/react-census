@@ -5,7 +5,7 @@ import { DataTable } from "@react-census/data-table"
 import { TableBrowser } from '@react-census/table-browser'
 
 function App() {
-  const [selectedVariables, setSelectedVariables] = useState<string[]>([])
+  const [selectedVariables, setSelectedVariables] = useState<string[]>(['B08526_104E','B08526_105E'])
 
   console.log("selected ", selectedVariables)
 
@@ -29,9 +29,10 @@ function App() {
   return (
     < div className="App" >
       <h1>Are we monorepo yet?</h1>
-      <TableBrowser selectedVariables={selectedVariables} onSelectVariable={toggleVariable} />
-
-      <DataTable {...query} />
+      {/* <TableBrowser selectedVariables={selectedVariables} onSelectVariable={toggleVariable} /> */}
+      <div style={{width:'40%'}}>
+        <DataTable {...query} />
+      </div>
     </div>
   );
 }
